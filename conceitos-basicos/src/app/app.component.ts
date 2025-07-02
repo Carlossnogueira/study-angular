@@ -4,10 +4,12 @@ import { CalculadoraComponent } from './calculadora/calculadora.component'
 // importação de componente personalizado
 import { HelloWorldComponent } from './helloworld/helloworld.component'
 
+import { ListaComprasComponent } from './lista-compras/lista-compras.component'
+
 @Component({
   selector: 'app-root',
   // adicionado o hello world
-  imports: [ CalculadoraComponent ],
+  imports: [ CalculadoraComponent, ListaComprasComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

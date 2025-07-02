@@ -1,7 +1,7 @@
 <div class="container">
     <div class="form-box">
         <!--Transformando o formulário em formulário Angular-->
-        <form #frm="ngForm">
+        <form #frm="ngForm" (ngSubmit)="calcularResultado()">
             <h2>Calculadora</h2>
             <label for="numero1">Numero 1</label>
             <!--
@@ -15,11 +15,23 @@
             <label for="numero2">Numero 2</label>
             <input type="number" name="numero2" id="numero2" [(ngModel)]="numero2">
             <!--Utilizando o metodo-->
-            <button type="button" (click)="calcularResultado()" >Somar</button>
+            <button type="submit">Somar</button>
         </form>
 
-        <div class="result-display">
-            <p>Resultado: <span id="result"> {{ resultado }}</span></p>
+        <!--Renderição condicional: CommonModule-->
+        <div class="result-display" *ngIf="resultado">
+            <p>Seu resultado está abaixo:</p>
         </div>
+
+        <!--Renderição condicional-->
+        @if(resultado){
+            <div class="result-display">
+                <p>Resultado: <span id="result"> {{ resultado }}</span></p>
+            </div>
+        } @else {
+            <p style="color: red;">Erro ao calcular!</p>
+        }
+
+
     </div>
 </div>
